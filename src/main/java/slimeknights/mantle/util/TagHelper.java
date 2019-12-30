@@ -1,41 +1,41 @@
 package slimeknights.mantle.util;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.nbt.ListNBT;
-import net.minecraft.nbt.StringNBT;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
 
 public class TagHelper {
-
-  public static int TAG_TYPE_STRING = (new StringNBT()).getId();
-  public static int TAG_TYPE_COMPOUND = (new CompoundNBT()).getId();
-
-  private TagHelper() {
-  }
-
-  /* Generic Tag Operations */
-  public static CompoundNBT getTagSafe(ItemStack stack) {
-    if (stack.isEmpty() || !stack.hasTag()) {
-      return new CompoundNBT();
+    
+    public static int TAG_TYPE_STRING = (new StringTag()).getType();
+    public static int TAG_TYPE_COMPOUND = (new CompoundTag()).getType();
+    
+    private TagHelper() {
     }
-
-    return stack.getTag();
-  }
-
-  public static CompoundNBT getTagSafe(CompoundNBT tag, String key) {
-    if (tag == null || !tag.contains(key)) {
-      return new CompoundNBT();
+    
+    /* Generic Tag Operations */
+    public static CompoundTag getTagSafe(ItemStack stack) {
+        if (stack.isEmpty() || !stack.hasTag()) {
+            return new CompoundTag();
+        }
+        
+        return stack.getTag();
     }
-
-    return tag.getCompound(key);
-  }
-
-  public static ListNBT getTagListSafe(CompoundNBT tag, String key, int type) {
-    if (tag == null || !tag.contains(key)) {
-      return new ListNBT();
+    
+    public static CompoundTag getTagSafe(CompoundTag tag, String key) {
+        if (tag == null || !tag.containsKey(key)) {
+            return new CompoundTag();
+        }
+        
+        return tag.getCompound(key);
     }
-
-    return tag.getList(key, type);
-  }
-
+    
+    public static ListTag getTagListSafe(CompoundTag tag, String key, int type) {
+        if (tag == null || !tag.containsKey(key)) {
+            return new ListTag();
+        }
+        
+        return tag.getList(key, type);
+    }
+    
 }

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "mantle",
+  "version": "${version}",
+  "name": "Mantle Fabric",
+  "description": "Shared code for Slime Knights mods and others.",
+  "authors": [
+    "Slime Knights",
+    "shedaniel"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "MIT",
+  "icon": "logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "slimeknights.mantle.Mantle"
+    ],
+    "rei_plugins_v0": [
+      "slimeknights.mantle.util.ReiPlugin"
+    ]
+  },
+  "mixins": [
+    "mantle.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.7.2",
+    "fabric": "*",
+    "minecraft": "1.14.x"
+  }
+}

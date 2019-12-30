@@ -11,8 +11,8 @@ import java.util.Map;
  */
 @ParametersAreNonnullByDefault
 public interface ISubscriberLocator {
-
-  @Nonnull
-  Map<Class<?>, Map<Method, Type>> findSubscribers(Object obj);
-
+    
+    @Nonnull
+    Map<Class<?>, Map<Method, Type>> findSubscribers(Object obj);
+    
 }

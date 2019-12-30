@@ -1,12 +1,8 @@
 ![Mantle logo](https://raw.github.com/SlimeKnights/Mantle/master/src/main/resources/Mantle.png)  
 # Mantle  
-**Shared code for Forge mods**
 
 ## Compile from Source
-Note: Git MUST be installed and in the system path to use our scripts.
-* setup: Run [gradle]in the repository root: `gradlew[.bat] [setupDevWorkspace|setupDecompWorkspace] [eclipse|idea]`
-* build: Run [gradle]in the repository root: `gradlew[.bat] build`
-* if obscure gradle issues are found try running `gradlew clean` or/and `gradlew cleanCache`
+Please refer to the [Fabric Wiki](https://www.fabricmc.net/wiki/doku.php).
 
 ## Issue reporting  
 Please include the following:
@@ -14,12 +10,12 @@ Please include the following:
 * Minecraft version
 * Mantle version
 * Versions of Mantle dependant mods
-* Forge version/build
+* Fabric version/build
 * Versions of any mods potentially related to the issue 
 * Any relevant screenshots are greatly appreciated.
 * For crashes:
 	* Steps to reproduce
-	* ForgeModLoader-client-0.log (the FML log) from the root folder of the client
+	* latest.log (the FML log) from the `log` folder of the client
 
 ## Licenses  
 The MIT License (MIT)

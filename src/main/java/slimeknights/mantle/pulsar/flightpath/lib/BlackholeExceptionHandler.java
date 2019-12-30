@@ -11,15 +11,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
  */
 @ParametersAreNonnullByDefault
 public class BlackholeExceptionHandler implements IExceptionHandler {
-
-  @Override
-  public void handle(Exception ex) {
-    // NO-OP
-  }
-
-  @Override
-  public void flush() {
-    // NO-OP
-  }
-
+    
+    @Override
+    public void handle(Exception ex) {
+        // NO-OP
+    }
+    
+    @Override
+    public void flush() {
+        // NO-OP
+    }
+    
 }

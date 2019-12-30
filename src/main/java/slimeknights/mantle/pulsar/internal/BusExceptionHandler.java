@@ -11,31 +11,31 @@ import javax.annotation.ParametersAreNonnullByDefault;
  */
 @ParametersAreNonnullByDefault
 public final class BusExceptionHandler implements IExceptionHandler {
-
-  private final String id;
-  private final Logger logger;
-
-  /**
-   * @param id Mod ID to include in exception raises.
-   */
-  public BusExceptionHandler(String id) {
-    this.id = id;
-    this.logger = LogManager.getLogger(id + "-Pulsar-Flightpath");
-  }
-
-  @Override
-  public void handle(Exception ex) {
-    this.logger.error("Exception caught from a pulse on flightpath for mod ID " + this.id + ": ", ex);
-    // if its a runtime exception, we can just throw it as is
-    if (ex instanceof RuntimeException) {
-      throw (RuntimeException) ex;
+    
+    private final String id;
+    private final Logger logger;
+    
+    /**
+     * @param id Mod ID to include in exception raises.
+     */
+    public BusExceptionHandler(String id) {
+        this.id = id;
+        this.logger = LogManager.getLogger(id + "-Pulsar-Flightpath");
     }
-    throw new Error(ex);
-  }
-
-  @Override
-  public void flush() {
-    // NO-OP
-  }
-
+    
+    @Override
+    public void handle(Exception ex) {
+        this.logger.error("Exception caught from a pulse on flightpath for mod ID " + this.id + ": ", ex);
+        // if its a runtime exception, we can just throw it as is
+        if (ex instanceof RuntimeException) {
+            throw (RuntimeException) ex;
+        }
+        throw new Error(ex);
+    }
+    
+    @Override
+    public void flush() {
+        // NO-OP
+    }
+    
 }

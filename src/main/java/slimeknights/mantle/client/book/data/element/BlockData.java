@@ -6,17 +6,17 @@ import slimeknights.mantle.client.book.repository.BookRepository;
 import java.util.Map;
 
 public class BlockData implements IDataElement {
-
-  public int[] pos;
-  public int[] endPos;
-  public String block;
-  public JsonObject nbt;
-  public Map<String, String> state;
-
-  @Override
-  public void load(BookRepository source) {
-    if(endPos == null) {
-      endPos = pos;
+    
+    public int[] pos;
+    public int[] endPos;
+    public String block;
+    public JsonObject nbt;
+    public Map<String, String> state;
+    
+    @Override
+    public void load(BookRepository source) {
+        if (endPos == null) {
+            endPos = pos;
+        }
     }
-  }
 }
