@@ -37,7 +37,6 @@ import java.util.Map;
 @ParametersAreNonnullByDefault
 public class PulseManager {
     
-    private Logger log;
     private final boolean useConfig;
     
     private static final Map<String, Map<Object, PulseMeta>> ALL_PULSES = new HashMap<>();
@@ -50,6 +49,7 @@ public class PulseManager {
     private boolean configLoaded = false;
     private IConfiguration conf;
     private String id;
+    private Logger log;
     
     public static final Marker PULSAR = MarkerManager.getMarker("PULSAR");
     
@@ -62,6 +62,7 @@ public class PulseManager {
      */
     public PulseManager(String configName, String modId) {
         this.id = modId;
+        this.log = LogManager.getLogger("Pulsar-" + id);
         this.useConfig = true;
         this.conf = new Configuration(configName, this.log);
     }
@@ -76,6 +77,7 @@ public class PulseManager {
      */
     public PulseManager(IConfiguration config, String modId) {
         this.id = modId;
+        this.log = LogManager.getLogger("Pulsar-" + id);
         this.useConfig = true;
         this.conf = config;
     }
@@ -84,7 +86,6 @@ public class PulseManager {
      * Shared initialiser code between all the constructors.
      */
     public void init() {
-        this.log = LogManager.getLogger("Pulsar-" + id);
         this.flightpath.setExceptionHandler(new BusExceptionHandler(id));
         // regsister our pulse loader so it can be found by the static method
         ALL_PULSES.put(id, this.pulses);
@@ -153,7 +154,7 @@ public class PulseManager {
         
         PulseMeta meta = new PulseMeta(id, description, forced, enabled, defaultEnabled);
         meta.setMissingDeps(missingDeps || !this.hasRequiredPulses(meta, pulseDeps));
-    
+        
         if (!meta.isForced() && this.useConfig) {
             this.conf.addPulse(meta);
         }
