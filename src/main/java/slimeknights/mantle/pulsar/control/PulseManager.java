@@ -62,9 +62,9 @@ public class PulseManager {
      */
     public PulseManager(String configName, String modId) {
         this.id = modId;
-        this.init();
         this.useConfig = true;
         this.conf = new Configuration(configName, this.log);
+        this.init();
     }
     
     /**
@@ -77,9 +77,9 @@ public class PulseManager {
      */
     public PulseManager(IConfiguration config, String modId) {
         this.id = modId;
-        this.init();
         this.useConfig = true;
         this.conf = config;
+        this.init();
     }
     
     /**
