@@ -64,7 +64,6 @@ public class PulseManager {
         this.id = modId;
         this.useConfig = true;
         this.conf = new Configuration(configName, this.log);
-        this.init();
     }
     
     /**
@@ -79,13 +78,12 @@ public class PulseManager {
         this.id = modId;
         this.useConfig = true;
         this.conf = config;
-        this.init();
     }
     
     /**
      * Shared initialiser code between all the constructors.
      */
-    private void init() {
+    public void init() {
         this.log = LogManager.getLogger("Pulsar-" + id);
         this.flightpath.setExceptionHandler(new BusExceptionHandler(id));
         // regsister our pulse loader so it can be found by the static method
